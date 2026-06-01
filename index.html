@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leo`Sports – Boutique Fitness</title>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card: #1a1a1a;
+      --orange: #f97316;
+      --orange-dark: #ea6208;
+      --orange-light: #fdba74;
+      --white: #ffffff;
+      --gray: #9ca3af;
+      --light: #f3f4f6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(249,115,22,0.15);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.6rem; font-weight: 900; letter-spacing: -1px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--orange); }
+
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      color: var(--gray); text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange); color: var(--black);
+      padding: 0.5rem 1.4rem; border-radius: 4px;
+      font-weight: 700; font-size: 0.85rem; text-decoration: none;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange-dark); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.5) 100%),
+        url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 100px 2rem 4rem;
+    }
+
+    .hero-inner { max-width: 700px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.4);
+      color: var(--orange);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title span { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 1.15rem; color: rgba(255,255,255,0.75);
+      max-width: 500px; margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--orange); color: var(--black);
+      padding: 0.9rem 2rem; border-radius: 4px;
+      font-weight: 800; font-size: 0.95rem;
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+    .btn-secondary {
+      border: 2px solid rgba(255,255,255,0.3); color: var(--white);
+      padding: 0.9rem 2rem; border-radius: 4px;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--orange); transform: translateY(-2px); }
+
+    /* SECTION */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--gray); font-size: 1.05rem;
+      max-width: 550px; margin-bottom: 3rem;
+    }
+
+    /* STATS */
+    #stats {
+      background: var(--orange);
+      padding: 3rem 2rem;
+    }
+    .stats-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem; text-align: center;
+    }
+    .stat-num {
+      font-size: 2.8rem; font-weight: 900; color: var(--black);
+      letter-spacing: -1px;
+    }
+    .stat-label {
+      font-size: 0.85rem; font-weight: 700;
+      color: rgba(0,0,0,0.65); text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* KURSE */
+    #kurse { background: var(--dark); }
+
+    .kurse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .kurs-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .kurs-card:hover { transform: translateY(-4px); border-color: rgba(249,115,22,0.4); }
+
+    .kurs-img {
+      height: 260px; overflow: hidden; position: relative;
+    }
+    .kurs-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(0.82);
+    }
+    .kurs-card:hover .kurs-img img {
+      transform: scale(1.08);
+      filter: brightness(0.95);
+    }
+    .kurs-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.7) 100%);
+    }
+
+    .kurs-tag {
+      position: absolute; top: 1rem; left: 1rem;
+      background: var(--orange); color: var(--black);
+      font-size: 0.7rem; font-weight: 800;
+      padding: 0.3rem 0.7rem; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .kurs-body { padding: 1.5rem; }
+    .kurs-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .kurs-desc { color: var(--gray); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.6; }
+
+    .kurs-meta {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    .kurs-meta span {
+      font-size: 0.78rem; color: var(--orange-light);
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #25d366; color: #000;
+      padding: 0.65rem 1.25rem; border-radius: 6px;
+      font-weight: 700; font-size: 0.85rem;
+      text-decoration: none; transition: background 0.2s;
+      border: none; cursor: pointer; font-family: inherit;
+    }
+    .btn-wa:hover { background: #1ebe5a; }
+
+    .wa-icon { width: 18px; height: 18px; }
+
+    /* KURSPLAN */
+    #kursplan { background: var(--black); }
+
+    .plan-grid-wrap { overflow-x: auto; }
+
+    .plan-grid {
+      width: 100%; border-collapse: collapse;
+      min-width: 750px;
+    }
+
+    .plan-grid th {
+      background: var(--card);
+      padding: 0.75rem 0.85rem;
+      text-align: left; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--gray);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .plan-grid th:first-child { width: 80px; }
+
+    .plan-grid td {
+      padding: 0.75rem 0.85rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.82rem; vertical-align: top;
+      min-height: 60px;
+    }
+
+    .plan-grid .zeit-cell {
+      font-weight: 800; font-size: 0.9rem;
+      color: var(--orange); white-space: nowrap;
+      background: var(--card);
+    }
+
+    .kurs-entry {
+      display: block;
+      background: rgba(249,115,22,0.08);
+      border-left: 3px solid var(--orange);
+      border-radius: 4px;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.4rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .kurs-entry:last-child { margin-bottom: 0; }
+    .kurs-entry:hover { background: rgba(249,115,22,0.18); }
+
+    .kurs-entry.yoga {
+      background: rgba(34,197,94,0.08);
+      border-left-color: #4ade80;
+    }
+    .kurs-entry.yoga:hover { background: rgba(34,197,94,0.18); }
+
+    .kurs-entry.cycling {
+      background: rgba(96,165,250,0.08);
+      border-left-color: #60a5fa;
+    }
+    .kurs-entry.cycling:hover { background: rgba(96,165,250,0.18); }
+
+    .kurs-entry.spezial {
+      background: rgba(251,191,36,0.08);
+      border-left-color: #fbbf24;
+    }
+    .kurs-entry.spezial:hover { background: rgba(251,191,36,0.18); }
+
+    .kurs-entry-name {
+      font-weight: 700; font-size: 0.8rem; color: var(--white);
+      display: block; line-height: 1.3;
+    }
+    .kurs-entry-sub {
+      font-size: 0.72rem; color: var(--gray);
+      display: block; margin-top: 0.15rem;
+    }
+
+    .plan-hinweis {
+      margin-top: 1.5rem; padding: 1rem 1.25rem;
+      background: rgba(249,115,22,0.07);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gray);
+      line-height: 1.8;
+    }
+    .plan-hinweis strong { color: var(--white); }
+
+    .plan-wa {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(37,211,102,0.12); color: #4ade80;
+      padding: 0.35rem 0.85rem; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 700;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .plan-wa:hover { background: rgba(37,211,102,0.25); }
+
+    /* TEAM */
+    #team { background: var(--dark); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .team-card:hover { transform: translateY(-4px); border-color: rgba(249,115,22,0.3); }
+
+    .team-photo {
+      width: 100%; height: 260px; overflow: hidden; position: relative;
+      background: #222;
+    }
+    .team-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      transition: transform 0.4s;
+      filter: brightness(0.9);
+    }
+    .team-card:hover .team-photo img { transform: scale(1.05); filter: brightness(1); }
+
+    .team-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: rgba(249,115,22,0.3);
+    }
+
+    .team-info { padding: 1.25rem 1rem 1.5rem; }
+    .team-name {
+      font-size: 1.1rem; font-weight: 800; margin-bottom: 0.3rem;
+    }
+    .team-role {
+      font-size: 0.82rem; color: var(--orange);
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 0.6rem;
+    }
+    .team-bio {
+      font-size: 0.85rem; color: var(--gray); line-height: 1.5;
+    }
+
+    /* NEWSLETTER */
+    #newsletter {
+      background:
+        linear-gradient(135deg, rgba(249,115,22,0.12), rgba(10,10,10,0)),
+        var(--dark);
+      border-top: 1px solid rgba(249,115,22,0.15);
+    }
+
+    .newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+
+    .nl-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .nl-form input[type="text"],
+    .nl-form input[type="email"] {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; color: var(--white);
+      padding: 0.85rem 1.25rem; font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .nl-form input:focus { border-color: var(--orange); }
+    .nl-form input::placeholder { color: var(--gray); }
+
+    .nl-form button {
+      background: var(--orange); color: var(--black);
+      border: none; border-radius: 6px;
+      padding: 0.9rem 2rem; font-size: 0.95rem; font-weight: 800;
+      cursor: pointer; transition: background 0.2s;
+      letter-spacing: 0.03em;
+    }
+    .nl-form button:hover { background: var(--orange-dark); }
+
+    .nl-note { font-size: 0.78rem; color: var(--gray); margin-top: 0.25rem; }
+
+    .nl-features { display: flex; flex-direction: column; gap: 1.25rem; }
+    .nl-feat {
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .nl-feat-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: rgba(249,115,22,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .nl-feat h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .nl-feat p { font-size: 0.85rem; color: var(--gray); }
+
+    /* FOOTER */
+    footer {
+      background: #060606;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--gray); font-size: 0.85rem;
+    }
+    footer .logo { font-size: 1.4rem; display: inline-block; margin-bottom: 1rem; }
+    footer p { margin-bottom: 0.5rem; }
+    footer a { color: var(--orange); text-decoration: none; }
+
+    /* MODAL */
+    .modal-backdrop {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: #1a1a1a;
+      border: 1px solid rgba(249,115,22,0.25);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 420px; width: 90%;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+      animation: modalIn 0.22s ease;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.92) translateY(10px); opacity: 0; }
+      to   { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .modal-close {
+      float: right; background: none; border: none;
+      color: var(--gray); font-size: 1.4rem; cursor: pointer;
+      line-height: 1; margin-top: -4px;
+      transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--white); }
+
+    .modal-kurs {
+      font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 0.4rem;
+    }
+    .modal-title {
+      font-size: 1.4rem; font-weight: 900;
+      margin-bottom: 0.25rem;
+    }
+    .modal-time {
+      font-size: 0.85rem; color: var(--gray);
+      margin-bottom: 1.75rem;
+    }
+
+    .modal-actions { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .modal-btn {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.9rem 1.25rem; border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700; font-size: 0.95rem; font-family: inherit;
+      text-align: left; width: 100%;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .modal-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .modal-btn-icon {
+      width: 42px; height: 42px; min-width: 42px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .modal-btn.call  { background: rgba(249,115,22,0.12); color: var(--white); border: 1px solid rgba(249,115,22,0.25); }
+    .modal-btn.call .modal-btn-icon { background: var(--orange); }
+
+    .modal-btn.wa    { background: rgba(37,211,102,0.1); color: var(--white); border: 1px solid rgba(37,211,102,0.25); }
+    .modal-btn.wa .modal-btn-icon { background: #25d366; }
+
+    .modal-btn.mail  { background: rgba(96,165,250,0.1); color: var(--white); border: 1px solid rgba(96,165,250,0.25); }
+    .modal-btn.mail .modal-btn-icon { background: #3b82f6; }
+
+    .modal-btn-text small { display: block; font-size: 0.75rem; color: var(--gray); font-weight: 400; margin-top: 1px; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">Leo`Sports<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#kurse">Kurse</a></li>
+    <li><a href="#kursplan">Kursplan</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#kursplan" class="nav-cta">Jetzt anmelden</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔥 Boutique Fitness – Nur die besten Kurse</div>
+    <h1 class="hero-title">
+      Dein Körper.<br>
+      Dein <span>Rhythmus.</span><br>
+      Deine Stärke.
+    </h1>
+    <p class="hero-sub">
+      Fasten nach Buchinger, Pilates & Yoga – die coolsten Kurse der Region, in kleinen Gruppen mit echtem Fokus auf dich.
+    </p>
+    <div class="hero-btns">
+      <a href="#kursplan" class="btn-primary">
+        📅 Zum Kursplan
+      </a>
+      <a href="#kurse" class="btn-secondary">Alle Kurse entdecken</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num">7</div>
+      <div class="stat-label">Kursangebote</div>
+    </div>
+    <div>
+      <div class="stat-num">19</div>
+      <div class="stat-label">Einheiten pro Woche</div>
+    </div>
+    <div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">Kurstage (Mo–So)</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Persönliche Betreuung</div>
+    </div>
+  </div>
+</div>
+
+<!-- KURSE -->
+<section id="kurse">
+  <div class="container">
+    <div class="section-label">Unser Angebot</div>
+    <h2 class="section-title">Die coolsten Kurse der Region</h2>
+    <p class="section-sub">Klein, intensiv, wirkungsvoll – jeder Kurs ist auf maximale Ergebnisse in entspannter Atmosphäre ausgelegt.</p>
+
+    <div class="kurse-grid">
+
+      <!-- Yoga Session -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/yoga1/800/500" alt="Yoga Session mit Diana" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Yoga</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">YOGA SESSION</h3>
+          <p class="kurs-desc"><strong>Yogastunde mit Diana</strong><br>
+            Der nächste Termin wird noch bekannt gegeben – von 9:00 bis 10:30 Uhr.<br>
+            Keine Mitgliedschaft erforderlich!
+          </p>
+          <div class="kurs-meta">
+            <span>💰 20,– € / Einheit</span>
+            <span>📋 Mit verbindlicher Anmeldung</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20die%20Yoga%20Session%20mit%20Diana%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Hatha Yoga -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/hatha/800/500" alt="Hatha Yoga mit Claudia" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Yoga</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Hatha Yoga</h3>
+          <p class="kurs-desc"><strong>Yogastunde mit Claudia</strong><br>
+            Ankommen · Durchatmen · Auftanken<br>
+            Der nächste Termin wird noch bekannt gegeben – von 18:00 bis 19:30 Uhr.<br>
+            Keine Mitgliedschaft erforderlich!
+          </p>
+          <div class="kurs-meta">
+            <span>💰 20,– € / Einheit</span>
+            <span>📋 Mit verbindlicher Anmeldung</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Hatha%20Yoga%20mit%20Claudia%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Kinder Yoga -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/kinderyoga/800/500" alt="Kinder Yoga" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Kinder</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Kinder Yoga</h3>
+          <p class="kurs-desc">
+            Der nächste Termin wird noch bekannt gegeben – für Kinder von 7 bis 11 Jahren.<br>
+            Zwischen Schulranzen, Freizeitstress und Bildschirmzeit bietet Yoga einen Gegenpol.
+          </p>
+          <div class="kurs-meta">
+            <span>👶 7–11 Jahre</span>
+            <span>💰 10,– € / Einheit</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mein%20Kind%20f%C3%BCr%20Kinder%20Yoga%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Ambulantes Fasten -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/fasten/800/500" alt="Ambulantes Fasten" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Signature</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Ambulantes Fasten</h3>
+          <p class="kurs-desc">
+            <strong>Im Leo Sport´s nach der Buchinger-Methode.</strong><br>
+            Finde hier alle Termine. Keine Mitgliedschaft erforderlich! Mit verbindlicher Anmeldung.
+          </p>
+          <div class="kurs-meta">
+            <span>📋 Keine Mitgliedschaft nötig</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Ambulantes%20Fasten%20nach%20Buchinger%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Mamas starke Mitte -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/mamas/800/500" alt="Mamas starke Mitte" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Neu</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Mamas starke Mitte</h3>
+          <p class="kurs-desc">
+            <strong style="color:var(--orange)">Kurs: 15.04.2026 bis 17.06.2026</strong><br>
+            10x mittwochs 10:00 bis 11:00 Uhr. Keine Mitgliedschaft erforderlich!
+          </p>
+          <div class="kurs-meta">
+            <span>💰 150,– €</span>
+            <span>📋 Mit verbindlicher Anmeldung</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Mamas%20starke%20Mitte%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- EMS Training -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="Bilder/Startseite_EMS_Training.jpg" alt="EMS Training" style="object-position: center top;" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Intensiv</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">EMS Training</h3>
+          <p class="kurs-desc">
+            <em>Kurz · Intensiv · Effektiv</em><br>
+            Wir haben ein neues EMS Gerät! Verbessere jetzt Deine Leistungsfähigkeit mit niederfrequentem Reizstrom.
+          </p>
+          <div class="kurs-meta">
+            <span>⚡ Niederfrequenter Reizstrom</span>
+            <span>⏱ Kurze Einheiten</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mehr%20%C3%BCber%20EMS%20Training%20erfahren.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Präventionskurse -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://picsum.photos/seed/praevention/800/500" alt="Präventionskurse" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Krankenkasse</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Präventionskurse</h3>
+          <p class="kurs-desc">
+            <strong>Die Krankenkassen unterstützen Deinen Fitnesseinstieg mit bis zu 100%.</strong><br>
+            Starte jetzt mit Rückenfit, Pilates, Aquafitness oder Herz-Kreislauf-Training!
+          </p>
+          <div class="kurs-meta">
+            <span>💳 Bis zu 100% Erstattung</span>
+          </div>
+          <button class="btn-wa" onclick="window.open('https://wa.me/4916072242400?text=Hallo%21%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20einen%20Pr%C3%A4ventionskurs%20anmelden.','_blank')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Jetzt anmelden
+          </button>
+        </div>
+      </div>
+
+      <!-- Über uns -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="https://www.leosports.de/wp-content/uploads/2020/12/Startseite_Dschungel.jpg" alt="Leo´Sports Boutique Fitness" style="object-position: center;" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Über uns</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Leo´Sports – Boutique Fitness in Bad Pyrmont</h3>
+          <p class="kurs-desc">
+            <strong>Das etwas andere Fitness Studio für Sie und Ihn in Bad Pyrmont.</strong><br>
+            Das LeoSport's Trainer*innenteam setzt sich aus professionellen und qualifizierten Trainer*innen zusammen – regelmäßige Fort- und Weiterbildungen gewährleisten hohe Qualität und Sicherheit.
+          </p>
+          <a class="btn-wa" href="https://www.leosports.de/leosports-boutique-fitness-in-bad-pyrmont/" target="_blank" style="background:#f97316; color:#000;">
+            🎬 Schau hier unseren Studiofilm
+          </a>
+        </div>
+      </div>
+
+      <!-- EGYM Wellpass -->
+      <div class="kurs-card">
+        <div class="kurs-img">
+          <img src="Bilder/Wellpass.jpg" alt="EGYM Wellpass" style="object-position: center;" />
+          <div class="kurs-img-overlay"></div>
+          <span class="kurs-tag">Partner</span>
+        </div>
+        <div class="kurs-body">
+          <h3 class="kurs-title">Wir sind Partner von EGYM Wellpass</h3>
+          <p class="kurs-desc">
+            <strong>Begeistert Unternehmen, bewegt Mitarbeiter.</strong><br>
+            Ihr Unternehmen bietet Firmenfitness an, das Angebot wird aber kaum angenommen? Dann ist <strong>EGYM Wellpass</strong> (ehemals qualitrain) Ihre Lösung!
+          </p>
+          <a class="btn-wa" href="https://www.leosports.de/qualitrain/" target="_blank" style="background:#f97316; color:#000;">
+            ℹ️ Mehr Infos zu EGYM Wellpass
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KURSPLAN -->
+<section id="kursplan">
+  <div class="container">
+    <div class="section-label">Wochenprogramm</div>
+    <h2 class="section-title">Kursplan</h2>
+    <p class="section-sub">Klick auf einen Kurs – wähle dann Anrufen, WhatsApp oder E-Mail. Jeder letzte Sonntag im Monat ist das Studio geschlossen.</p>
+
+    <div class="plan-grid-wrap">
+      <table class="plan-grid">
+        <thead>
+          <tr>
+            <th>Uhrzeit</th>
+            <th>Montag</th>
+            <th>Dienstag</th>
+            <th>Mittwoch</th>
+            <th>Donnerstag</th>
+            <th>Freitag</th>
+            <th>Sonntag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="zeit-cell">09:00 Uhr</td>
+            <td></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Bauch Beine Po','09:00 Uhr','Dienstag');return false;"><span class="kurs-entry-name">Bauch Beine Po</span></a></td>
+            <td><a class="kurs-entry spezial" href="#" onclick="openModal('Personal Training &amp; EMS *','09:00 Uhr','Mittwoch');return false;"><span class="kurs-entry-name">Personal Training &amp; EMS *</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('STOTT PILATES ®','09:00 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">STOTT PILATES ®</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Rücken &amp; Figur','09:00 Uhr','Freitag');return false;"><span class="kurs-entry-name">Rücken &amp; Figur</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">10:00 Uhr</td>
+            <td></td>
+            <td><a class="kurs-entry spezial" href="#" onclick="openModal('Personal Training &amp; EMS *','10:00 Uhr','Dienstag');return false;"><span class="kurs-entry-name">Personal Training &amp; EMS *</span></a></td>
+            <td><a class="kurs-entry spezial" href="#" onclick="openModal('MAMAS STARKE MITTE ***','10:00 Uhr','Mittwoch');return false;"><span class="kurs-entry-name">MAMAS STARKE MITTE ***</span><span class="kurs-entry-sub">Präventionskurs – siehe News</span></a></td>
+            <td><a class="kurs-entry spezial" href="#" onclick="openModal('Personal Training &amp; EMS *','10:00 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">Personal Training &amp; EMS *</span></a></td>
+            <td></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Langhanteltraining – Full body workout','10:00 Uhr','Sonntag');return false;"><span class="kurs-entry-name">Langhanteltraining</span><span class="kurs-entry-sub">Full body workout</span></a></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">17:00 Uhr</td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('STOTT PILATES ®','17:00 Uhr','Montag');return false;"><span class="kurs-entry-name">STOTT PILATES ®</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">18:00 Uhr</td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('STOTT PILATES ®','18:00 Uhr','Montag');return false;"><span class="kurs-entry-name">STOTT PILATES ®</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Bauch Beine Po &amp; PACE Zirkeltraining','18:00 Uhr','Dienstag');return false;"><span class="kurs-entry-name">Bauch Beine Po &amp; PACE</span><span class="kurs-entry-sub">Zirkeltraining</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('STOTT PILATES ®','18:00 Uhr','Mittwoch');return false;"><span class="kurs-entry-name">STOTT PILATES ®</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Langhanteltraining Full body workout','18:00 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">Langhanteltraining Full body workout</span></a><a class="kurs-entry" href="#" onclick="openModal('PACE Zirkeltraining','18:00 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">PACE Zirkeltraining</span></a></td>
+            <td><a class="kurs-entry yoga" href="#" onclick="openModal('YOGA ***','18:00 Uhr','Freitag');return false;"><span class="kurs-entry-name">YOGA ***</span><span class="kurs-entry-sub">siehe News</span></a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">19:00 Uhr</td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Rückenfit &amp; Bauch','19:00 Uhr','Montag');return false;"><span class="kurs-entry-name">Rückenfit &amp; Bauch</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td><a class="kurs-entry cycling" href="#" onclick="openModal('Indoor-Cycling','19:00 Uhr','Dienstag');return false;"><span class="kurs-entry-name">Indoor-Cycling</span></a></td>
+            <td><a class="kurs-entry" href="#" onclick="openModal('Rückenfit &amp; Bauch','19:00 Uhr','Mittwoch');return false;"><span class="kurs-entry-name">Rückenfit &amp; Bauch</span><span class="kurs-entry-sub">Präventionskurs</span></a></td>
+            <td><a class="kurs-entry cycling" href="#" onclick="openModal('Indoor-Cycling','19:00 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">Indoor-Cycling</span></a></td>
+            <td></td><td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">19:45 Uhr</td>
+            <td></td><td></td><td></td>
+            <td><a class="kurs-entry yoga" href="#" onclick="openModal('Stretch &amp; Relax ***','19:45 Uhr','Donnerstag');return false;"><span class="kurs-entry-name">Stretch &amp; Relax ***</span><span class="kurs-entry-sub">ab Okt 2026</span></a></td>
+            <td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="plan-hinweis">
+      <strong>* Termine nach Vereinbarung</strong> &nbsp;|&nbsp;
+      <strong>** mit Anmeldung</strong> &nbsp;|&nbsp;
+      <strong>*** mit Anmeldung und Extragebühr</strong><br>
+      ⚠️ <strong>Am jeweils letzten Sonntag im Monat bleibt das Studio geschlossen!</strong>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="section-label">Unser Team</div>
+    <h2 class="section-title">Die Menschen hinter Leo´Sports</h2>
+    <p class="section-sub">Qualifiziert, leidenschaftlich, persönlich – unser Team steht für hohe Qualität und echte Betreuung.</p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="Bilder/Claudia_Just_sw.jpg" alt="Claudia Just" />
+        </div>
+        <div class="team-info">
+          <div class="team-name">Claudia Just</div>
+          <div class="team-role">Hatha Yoga · Pilates</div>
+          <div class="team-bio">Ankommen · Durchatmen · Auftanken – Claudia begleitet dich mit Herz und Erfahrung.</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="Bilder/Diana_sw.jpg" alt="Diana" />
+        </div>
+        <div class="team-info">
+          <div class="team-name">Diana</div>
+          <div class="team-role">Yoga Session</div>
+          <div class="team-bio">Leidenschaftliche Yogalehrerin – Diana bringt Ruhe und Energie in jede Stunde.</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="Bilder/Jenny_2-2.jpg" alt="Jenny" />
+        </div>
+        <div class="team-info">
+          <div class="team-name">Jenny</div>
+          <div class="team-role">Trainerin</div>
+          <div class="team-bio">Mit Begeisterung und Fachkompetenz motiviert Jenny ihre Teilnehmer zu Höchstleistungen.</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="Bilder/Pauline_neu_sw.jpg" alt="Pauline" />
+        </div>
+        <div class="team-info">
+          <div class="team-name">Pauline</div>
+          <div class="team-role">Trainerin</div>
+          <div class="team-bio">Pauline steht für individuelle Betreuung und nachhaltige Bewegungskonzepte.</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="Bilder/Pia.jpg" alt="Pia" />
+        </div>
+        <div class="team-info">
+          <div class="team-name">Pia</div>
+          <div class="team-role">Trainerin</div>
+          <div class="team-bio">Pia bringt frische Energie und neue Impulse in das Leo´Sports Team.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div>
+        <div class="section-label">Bleib informiert</div>
+        <h2 class="section-title">Newsletter</h2>
+        <p class="section-sub">Neue Kurstermine, exklusive Früh­bucher­rabatte und Wellness-Tipps direkt in dein Postfach.</p>
+        <div class="nl-features">
+          <div class="nl-feat">
+            <div class="nl-feat-icon">📅</div>
+            <div>
+              <h4>Neue Kurstermine</h4>
+              <p>Als Erstes erfährst du von neuen Fasten-, Pilates- und Yoga-Terminen.</p>
+            </div>
+          </div>
+          <div class="nl-feat">
+            <div class="nl-feat-icon">🎁</div>
+            <div>
+              <h4>Exklusive Angebote</h4>
+              <p>Frühbucherrabatte und Special Deals nur für Newsletter-Abonnenten.</p>
+            </div>
+          </div>
+          <div class="nl-feat">
+            <div class="nl-feat-icon">🌿</div>
+            <div>
+              <h4>Wellness-Tipps</h4>
+              <p>Ernährungs- und Bewegungstipps, die wirklich funktionieren.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="nl-form" onsubmit="handleNewsletter(event)">
+          <input type="text" placeholder="Dein Vorname" required />
+          <input type="email" placeholder="Deine E-Mail-Adresse" required />
+          <button type="submit">Jetzt kostenlos anmelden →</button>
+          <p class="nl-note">Kein Spam. Abmeldung jederzeit möglich. Datenschutz wird großgeschrieben.</p>
+        </form>
+        <div id="nl-success" style="display:none; margin-top:1rem; padding:1rem; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.3); border-radius:8px; color:#4ade80; font-weight:600;">
+          ✓ Danke! Du bist jetzt dabei. Schau in dein Postfach.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontakt">
+  <a href="#hero" class="logo">Leo`Sports<span style="color:var(--orange)">.</span></a>
+  <p style="margin-top:0.5rem;">Leo`Sports.de – Boutique Fitness – Die coolsten Kurse der Region</p>
+  <p style="margin: 0.75rem 0;">
+    📍 Südstraße 13 (Erlebnisbad Pyrmonter Welle), 31812 Bad Pyrmont &nbsp;|&nbsp;
+    📞 <a href="tel:+4916072242400">0160 722 424 0</a> &nbsp;|&nbsp;
+    ✉️ <a href="mailto:leosports@gmx.de">leosports@gmx.de</a>
+  </p>
+  <p style="margin-top:1.5rem; font-size:0.78rem; color:rgba(156,163,175,0.5);">
+    © 2026 Leo`Sports.de · <a href="#" style="color:rgba(156,163,175,0.5)">Impressum</a> · <a href="#" style="color:rgba(156,163,175,0.5)">Datenschutz</a>
+  </p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div class="modal-kurs" id="modalKurs">Kurs</div>
+    <div class="modal-title" id="modalTitle">Kursname</div>
+    <div class="modal-time" id="modalTime">Tag · Uhrzeit</div>
+    <div class="modal-actions">
+      <button class="modal-btn call" onclick="modalCall()">
+        <div class="modal-btn-icon">📞</div>
+        <div class="modal-btn-text">Jetzt anrufen<small>0160 722 424 0</small></div>
+      </button>
+      <button class="modal-btn wa" id="modalWaBtn" onclick="modalWA()">
+        <div class="modal-btn-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.561 4.14 1.537 5.877L0 24l6.273-1.513A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.49-5.193-1.348l-.371-.214-3.727.899.934-3.613-.231-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <div class="modal-btn-text">WhatsApp schreiben<small>0160 722 424 0</small></div>
+      </button>
+      <button class="modal-btn mail" id="modalMailBtn" onclick="modalMail()">
+        <div class="modal-btn-icon">✉️</div>
+        <div class="modal-btn-text">E-Mail schreiben<small>leosports@gmx.de</small></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var _waUrl = '';
+  var _mailUrl = '';
+
+  function openModal(kursName, zeit, tag) {
+    document.getElementById("modalKurs").textContent = tag;
+    document.getElementById("modalTitle").textContent = kursName;
+    document.getElementById("modalTime").textContent = tag + " · " + zeit;
+    const msg = encodeURIComponent("Hallo! Ich möchte mich für " + kursName + " anmelden.");
+    _waUrl = "https://wa.me/4916072242400?text=" + msg;
+    _mailUrl = "mailto:leosports@gmx.de?subject=" + encodeURIComponent("Anmeldung: " + kursName) + "&body=" + encodeURIComponent("Hallo,\n\nich möchte mich für " + kursName + " anmelden.\n\nMit freundlichen Grüßen");
+    document.getElementById("modalBackdrop").classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function modalCall() {
+    closeModalDirect();
+    setTimeout(function(){ window.location.href = 'tel:+4916072242400'; }, 50);
+  }
+
+  function modalWA() {
+    var url = _waUrl;
+    closeModalDirect();
+    setTimeout(function(){ window.open(url, '_blank'); }, 50);
+  }
+
+  function modalMail() {
+    var url = _mailUrl;
+    closeModalDirect();
+    setTimeout(function(){ window.location.href = url; }, 50);
+  }
+
+  function closeModalDirect() {
+    document.getElementById("modalBackdrop").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("modalBackdrop").addEventListener("click", function(e) {
+    if (e.target === this) closeModalDirect();
+  });
+
+  document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeModalDirect(); });
+
+  function handleNewsletter(e) {
+    e.preventDefault();
+    e.target.style.display = "none";
+    document.getElementById("nl-success").style.display = "block";
+  }
+</script>
+</body>
+</html>
