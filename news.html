@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News – Leo`Sports Boutique Fitness</title>
+  <title>News – Leo´Sports Boutique Fitness</title>
   <style>
     :root {
       --black: #0a0a0a; --dark: #111111; --card: #1a1a1a;
@@ -20,8 +20,8 @@
       border-bottom: 1px solid rgba(249,115,22,0.15);
       padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 70px;
     }
-    .logo { text-decoration: none; }
-    .logo img { height: 44px; width: auto; }
+    .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--orange); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--orange); }
@@ -32,8 +32,10 @@
       background: linear-gradient(135deg, rgba(10,10,10,0.95), rgba(10,10,10,0.8)),
         url('https://www.leosports.de/wp-content/uploads/2025/08/News.jpg') center/cover no-repeat;
     }
+    .news-hero-inner { max-width: 860px; margin: 0 auto; }
     .news-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; letter-spacing: -2px; margin-bottom: 0.5rem; }
     .news-hero p { color: var(--gray); font-size: 1.05rem; }
+    .section-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
 
     .news-container { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
@@ -45,7 +47,7 @@
       margin-bottom: 2rem;
       transition: border-color 0.2s, transform 0.2s;
     }
-    .news-item:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .news-item:hover { transform: translateY(-2px); }
 
     .news-tag {
       display: inline-block; background: rgba(249,115,22,0.15); color: var(--orange);
@@ -57,7 +59,7 @@
     .news-body strong { color: var(--white); }
     .news-body ul { margin: 0.75rem 0 0.75rem 1.25rem; }
     .news-body li { margin-bottom: 0.35rem; }
-    .news-body s { opacity: 0.5; }
+    .news-body s { opacity: 0.45; }
     .news-link {
       display: inline-block; margin-top: 1rem;
       background: var(--orange); color: var(--black);
@@ -72,14 +74,11 @@
     }
     .news-link.secondary:hover { background: rgba(249,115,22,0.1); }
 
-    .news-dates { margin: 0.75rem 0; }
-    .news-dates li { color: var(--gray); }
-    .news-dates li s { opacity: 0.45; }
-
     footer {
       background: #060606; border-top: 1px solid rgba(255,255,255,0.06);
       padding: 3rem 2rem; text-align: center; color: var(--gray); font-size: 0.85rem;
     }
+    footer .logo { font-size: 1.4rem; display: inline-block; margin-bottom: 1rem; }
     footer a { color: var(--orange); text-decoration: none; }
 
     @media (max-width: 768px) { .nav-links { display: none; } }
@@ -88,7 +87,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo"><img src="https://www.leosports.de/wp-content/uploads/2020/12/a-LOGO_Leosports_Boutique-1.png" alt="Leo'Sports" /></a>
+  <a href="index.html" class="logo">Leo´Sports<span>.</span>de</a>
   <ul class="nav-links">
     <li><a href="index.html#kurse">Kurse</a></li>
     <li><a href="index.html#kursplan">Kursplan</a></li>
@@ -102,8 +101,8 @@
 </nav>
 
 <div class="news-hero">
-  <div style="max-width:860px;margin:0 auto;">
-    <div style="font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:0.75rem;">Aktuelles</div>
+  <div class="news-hero-inner">
+    <div class="section-label">Aktuelles</div>
     <h1>News</h1>
     <p>Aktuelle Termine, Kurse und Angebote aus dem Leo´Sports Bad Pyrmont.</p>
   </div>
@@ -111,20 +110,19 @@
 
 <div class="news-container">
 
-  <!-- Ambulantes Fasten -->
   <div class="news-item">
     <div class="news-tag">Ambulantes Fasten</div>
     <div class="news-title">Ambulantes Fasten für Gesunde nach der Buchinger-Methode</div>
     <div class="news-body">
       <strong>Termine 2026:</strong>
-      <ul class="news-dates">
+      <ul>
         <li><s>Fr. 27.02.26 bis Fr. 06.03.26 – Option auf Verlängerung möglich</s></li>
         <li>Fr. 22.05.26 bis Fr. 29.05.26 – Option auf Verlängerung möglich</li>
         <li>Fr. 18.09.26 bis Fr. 25.09.26 – Option auf Verlängerung möglich</li>
         <li>Fr. 13.11.26 bis Fr. 20.11.26 – Option auf Verlängerung möglich</li>
       </ul>
       <strong>Termine 2027:</strong>
-      <ul class="news-dates">
+      <ul>
         <li>Fr. 22.01.27 bis Fr. 29.01.27 – Option auf Verlängerung möglich</li>
         <li>Fr. 05.03.27 bis Fr. 12.03.27 – Option auf Verlängerung möglich</li>
         <li>Weitere Termine folgen</li>
@@ -134,7 +132,6 @@
     <a class="news-link" href="https://wa.me/4916072242400?text=Hallo!%20Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Ambulantes%20Fasten%20anmelden." target="_blank">Jetzt anmelden</a>
   </div>
 
-  <!-- Präventionskurse -->
   <div class="news-item">
     <div class="news-tag">Präventionskurs</div>
     <div class="news-title">Krankenkassen fördern deinen Fitnesseinstieg mit 80–100%!</div>
@@ -145,134 +142,117 @@
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20interessiere%20mich%20f%C3%BCr%20einen%20Pr%C3%A4ventionskurs." target="_blank">Mehr erfahren</a>
   </div>
 
-  <!-- Mamas starke Mitte -->
   <div class="news-item">
     <div class="news-tag">Neuer Kurs</div>
     <div class="news-title">MAMAS STARKE MITTE – Pilates speziell für Mamas</div>
     <div class="news-body">
       <strong style="color:var(--orange)">15.04.2026 bis 17.06.2026</strong><br>
       10x mittwochs 10:00 bis 11:00 Uhr im Leo´Sports Bad Pyrmont.<br>
-      Teilnahmegebühr: <strong>150 €</strong> – Zuschuss der Krankenkassen 80–100%.<br>
-      Anmeldung erforderlich! leosports@gmx.de oder 0160 7224240
+      Teilnahmegebühr: <strong>150 €</strong> – Zuschuss der Krankenkassen 80–100%.
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Mamas%20starke%20Mitte%20anmelden." target="_blank">Jetzt anmelden</a>
   </div>
 
-  <!-- Stretch & Relax -->
   <div class="news-item">
     <div class="news-tag">Neuer Kurs</div>
     <div class="news-title">Stretch &amp; Relax – startet Oktober 2026</div>
     <div class="news-body">
-      Der begehrte <strong>Stretch &amp; Relax Kurs</strong> startet im Oktober 2026.<br>
       10x Donnerstags 19:45 – 20:45 Uhr · Kostenbeitrag: <strong>150 €</strong><br>
       Zuschuss der Krankenkassen 80–100%. Sichere dir jetzt deinen Platz!
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Stretch%20%26%20Relax%20anmelden." target="_blank">Platz sichern</a>
   </div>
 
-  <!-- Kinder Yoga -->
   <div class="news-item">
     <div class="news-tag">Kinder Yoga</div>
     <div class="news-title">Kinder Yoga im Leo´Sports – 7 bis 11 Jahre</div>
     <div class="news-body">
-      <strong>Nächster Termin wird bekannt gegeben</strong> · 11:30 – 12:15 Uhr (45 Min.) · mit Diana<br>
-      Zwischen Schulranzen, Freizeitstress und Bildschirmzeit bietet Yoga einen Gegenpol – ohne Leistungsdruck.<br>
+      <strong>Nächster Termin wird bekannt gegeben</strong> · 11:30 – 12:15 Uhr · mit Diana<br>
       Kostenbeitrag: <strong>10,– € / Einheit</strong> · Keine Mitgliedschaft erforderlich.
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mein%20Kind%20f%C3%BCr%20Kinder%20Yoga%20anmelden." target="_blank">Anmelden</a>
   </div>
 
-  <!-- Yoga Session Diana -->
   <div class="news-item">
     <div class="news-tag">Yoga</div>
     <div class="news-title">Yoga Session mit Diana – Körperlich · Energetisch · Emotional</div>
     <div class="news-body">
-      <strong>Nächster Termin wird bekannt gegeben</strong> · 90 Minuten<br>
-      Fließende Sequenzen und gehaltene Asanas – achtsame Bewegung mit bewusstem Atem. Für alle Level, Vorkenntnisse nicht erforderlich.<br>
+      <strong>Nächster Termin wird bekannt gegeben</strong> · 90 Minuten · Für alle Level.<br>
       Kostenbeitrag: <strong>20,– € / Einheit</strong> · Keine Mitgliedschaft erforderlich.
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Yoga%20mit%20Diana%20anmelden." target="_blank">Anmelden</a>
   </div>
 
-  <!-- Hatha Yoga Claudia -->
   <div class="news-item">
     <div class="news-tag">Hatha Yoga</div>
     <div class="news-title">Hatha Yoga am Freitagabend mit Claudia Just</div>
     <div class="news-body">
       <strong>Ankommen · Durchatmen · Auftanken</strong><br>
       <strong>Nächster Termin wird bekannt gegeben</strong> · 18:00 bis 19:30 Uhr<br>
-      Klassische Hatha-Yoga-Praxis – kräftigende und mobilisierende Asanas mit tiefer Entspannung am Ende. Für alle Level.<br>
       Kostenbeitrag: <strong>20,– € / Einheit</strong> · Keine Mitgliedschaft erforderlich.
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Hatha%20Yoga%20mit%20Claudia%20anmelden." target="_blank">Anmelden</a>
   </div>
 
-  <!-- Indoor Cycling -->
   <div class="news-item">
     <div class="news-tag">Indoor Cycling</div>
     <div class="news-title">Indoor-Cycling – Dein Energie-Boost!</div>
     <div class="news-body">
       Jeden <strong>Dienstag &amp; Donnerstag um 19:00 Uhr</strong><br>
-      Mitreißendes Herz-Kreislauf-Training zu energiegeladener Musik. Ausdauer stärken, Kalorien verbrennen, Stress abbauen – für Anfänger und Profis!
+      Mitreißendes Herz-Kreislauf-Training zu energiegeladener Musik. Für Anfänger und Profis!
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mich%20f%C3%BCr%20Indoor-Cycling%20anmelden." target="_blank">Anmelden</a>
   </div>
 
-  <!-- Face Yoga -->
   <div class="news-item">
     <div class="news-tag">Workshop</div>
     <div class="news-title">Face Yoga Workshop im Leo´Sports</div>
     <div class="news-body">
       <strong>Neuer Termin wird bekannt gegeben</strong><br>
-      Ein Anti-Aging Workshop – Energie Face Yoga für Körper, Geist &amp; Seele nach der Danielle Collins Methode mit Birke Langermann.<br>
+      Anti-Aging Workshop nach der Danielle Collins Methode mit Birke Langermann.<br>
       Energieausgleich: <strong>15,– €</strong>
     </div>
     <a class="news-link" href="https://handgemachte-naturkosmetik.bio/face-yoga-workshops/" target="_blank">Alle Infos &amp; Anmeldung</a>
   </div>
 
-  <!-- EMS Training -->
   <div class="news-item">
     <div class="news-tag">EMS Training</div>
     <div class="news-title">Neues EMS Gerät im Leo´Sports!</div>
     <div class="news-body">
-      20-minütiges Training mit niederfrequentem Reizstrom – kräftigt die Muskulatur, pflegt das Nervensystem, lindert Schmerzen und verbessert die Leistungsfähigkeit.<br><br>
-      <strong>„Ich habe jetzt schon weniger Rückenschmerzen!"</strong> – so berichten viele EMS-Trainierende nach den ersten Einheiten.
+      20-minütiges Training mit niederfrequentem Reizstrom – kräftigt Muskulatur, lindert Schmerzen, verbessert Leistungsfähigkeit.<br>
+      <strong>„Ich habe jetzt schon weniger Rückenschmerzen!"</strong>
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20m%C3%B6chte%20mehr%20%C3%BCber%20EMS%20Training%20erfahren." target="_blank">Mehr Infos</a>
-    <a class="news-link secondary" href="https://youtu.be/wv1ak-VLqm0" target="_blank">🎬 Video ansehen</a>
+    <a class="news-link secondary" href="https://youtu.be/wv1ak-VLqm0" target="_blank">🎬 Video</a>
   </div>
 
-  <!-- EGYM Wellpass -->
   <div class="news-item">
     <div class="news-tag">Firmenfitness</div>
     <div class="news-title">EGYM Wellpass – Firmenfitness bei Leo´Sports</div>
     <div class="news-body">
       <strong>Begeistert Unternehmen, bewegt Mitarbeiter.</strong><br>
-      EGYM Wellpass (ehemals qualitrain) – für Unternehmen, die ihren Mitarbeitern mehr als nur einen Fitnessraum bieten wollen.<br>
-      Für Fragen: Mobil <a href="tel:+4916072242400" style="color:var(--orange)">0160 722 424 0</a>
+      EGYM Wellpass (ehemals qualitrain) – für Unternehmen die ihren Mitarbeitern echte Fitness bieten wollen.<br>
+      Für Fragen: <a href="tel:+4916072242400" style="color:var(--orange)">0160 722 424 0</a>
     </div>
     <a class="news-link" href="https://www.leosports.de/qualitrain/" target="_blank">Mehr Infos</a>
   </div>
 
-  <!-- Gutschein -->
   <div class="news-item">
     <div class="news-tag">Geschenk</div>
     <div class="news-title">Ein Gutschein von Leo´Sports – das perfekte Geschenk!</div>
     <div class="news-body">
-      Für deine Liebsten oder auch für dich. Der Gutschein kann individuell eingesetzt werden – für alle Kurse, Personalcoaching oder EMS Training.<br>
-      Gutscheine erhältst Du im Studio oder direkt online.
+      Für alle Kurse, Personalcoaching oder EMS Training. Erhältlich im Studio oder direkt online.
     </div>
     <a class="news-link" href="https://www.paypal.com/paypalme/leosports" target="_blank">Gutschein kaufen</a>
   </div>
 
-  <!-- Personal Training -->
   <div class="news-item">
     <div class="news-tag">Personal Training</div>
     <div class="news-title">Personal Training – Einzeln oder in Kleingruppen</div>
     <div class="news-body">
-      Du hast Trainingswünsche, aber noch keinen passenden Trainer? Schreib uns und wir finden das zu dir passende individuelle Trainingsprogramm.<br>
       <strong>Einzeltraining ist buchbar!</strong><br>
-      Für Fragen: <a href="tel:+4916072242400" style="color:var(--orange)">0160 722 424 0</a>
+      Schreib uns deine Trainingswünsche – wir finden das passende individuelle Programm.<br>
+      <a href="tel:+4916072242400" style="color:var(--orange)">0160 722 424 0</a>
     </div>
     <a class="news-link" href="https://wa.me/4916072242400?text=Ich%20interessiere%20mich%20f%C3%BCr%20Personal%20Training." target="_blank">Anfragen</a>
   </div>
@@ -280,8 +260,8 @@
 </div>
 
 <footer>
-  <a href="index.html"><img src="https://www.leosports.de/wp-content/uploads/2020/12/a-LOGO_Leosports_Boutique-1.png" alt="Leo'Sports" style="height:44px;margin-bottom:1rem;display:block;margin-left:auto;margin-right:auto;" /></a>
-  <p>Südstraße 13 (Erlebnisbad Pyrmonter Welle), 31812 Bad Pyrmont</p>
+  <a href="index.html" class="logo">Leo´Sports<span style="color:var(--orange)">.</span>de</a>
+  <p style="margin-top:0.5rem;">Südstraße 13 (Erlebnisbad Pyrmonter Welle), 31812 Bad Pyrmont</p>
   <p style="margin:0.5rem 0;"><a href="tel:+4916072242400">0160 722 424 0</a> · <a href="mailto:leosports@gmx.de">leosports@gmx.de</a></p>
   <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(156,163,175,0.5);">© 2026 Leo´Sports.de · <a href="#" style="color:rgba(156,163,175,0.5)">Impressum</a> · <a href="#" style="color:rgba(156,163,175,0.5)">Datenschutz</a></p>
 </footer>
