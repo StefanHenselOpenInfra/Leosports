@@ -323,6 +323,58 @@
     }
     .plan-wa:hover { background: rgba(37,211,102,0.25); }
 
+    /* ONLINE KURSE */
+    #onlinekurse { background: var(--black); }
+
+    .online-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(96,165,250,0.12);
+      border: 1px solid rgba(96,165,250,0.3);
+      color: #60a5fa; padding: 0.35rem 1rem;
+      border-radius: 100px; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1.5rem; display: inline-block;
+    }
+
+    .online-grid {
+      width: 100%; border-collapse: collapse;
+      min-width: 750px;
+    }
+    .online-grid-wrap { overflow-x: auto; }
+
+    .online-grid th {
+      background: rgba(96,165,250,0.08);
+      padding: 0.75rem 0.85rem;
+      text-align: left; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #60a5fa;
+      border: 1px solid rgba(96,165,250,0.1);
+    }
+    .online-grid th:first-child { width: 80px; }
+
+    .online-grid td {
+      padding: 0.75rem 0.85rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.82rem; vertical-align: top;
+    }
+
+    .online-grid .zeit-cell {
+      font-weight: 800; font-size: 0.9rem;
+      color: #60a5fa; white-space: nowrap;
+      background: rgba(96,165,250,0.05);
+    }
+
+    .zoom-entry { display: block; margin-bottom: 0.3rem; }
+    .zoom-entry:last-child { margin-bottom: 0; }
+    .zoom-name { font-weight: 700; color: var(--white); font-size: 0.82rem; }
+    .zoom-link {
+      display: inline-block; color: #60a5fa;
+      font-size: 0.75rem; text-decoration: none;
+      transition: color 0.15s;
+    }
+    .zoom-link:hover { color: #93c5fd; text-decoration: underline; }
+    .zoom-id { font-size: 0.7rem; color: var(--gray); }
+
     /* TEAM */
     #team { background: var(--dark); }
 
@@ -528,6 +580,7 @@
   <ul class="nav-links">
     <li><a href="#kurse">Kurse</a></li>
     <li><a href="#kursplan">Kursplan</a></li>
+    <li><a href="#onlinekurse">Online Kurse</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -940,6 +993,123 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE KURSE -->
+<section id="onlinekurse">
+  <div class="container">
+    <div class="online-badge">🎥 Live-Stream</div>
+    <div class="section-label">Wochenprogramm</div>
+    <h2 class="section-title">Online Kurse</h2>
+    <p class="section-sub">Trainiere von zuhause – klick auf „Raum betreten" um direkt in den Zoom-Kurs einzusteigen.</p>
+
+    <div class="online-grid-wrap">
+      <table class="online-grid">
+        <thead>
+          <tr>
+            <th>Uhrzeit</th>
+            <th>Montag</th>
+            <th>Dienstag</th>
+            <th>Mittwoch</th>
+            <th>Donnerstag</th>
+            <th>Freitag</th>
+            <th>Sonntag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="zeit-cell">09:00 Uhr</td>
+            <td></td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Bauch Beine Po</div>
+                <a class="zoom-link" href="https://zoom.us/j/84569183236" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 84569183236</div>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">STOTT PILATES ®</div>
+                <a class="zoom-link" href="https://zoom.us/j/88474645118" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 88474645118</div>
+              </div>
+            </td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Rücken und Figur</div>
+                <a class="zoom-link" href="https://zoom.us/j/84474107607" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 84474107607</div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">17:00 Uhr</td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">STOTT PILATES ®</div>
+                <a class="zoom-link" href="https://zoom.us/j/85684428341" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 85684428341</div>
+              </div>
+            </td>
+            <td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">18:00 Uhr</td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">STOTT PILATES ®</div>
+                <a class="zoom-link" href="https://zoom.us/j/89355348607" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 89355348607</div>
+              </div>
+            </td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Bauch Beine Po</div>
+                <a class="zoom-link" href="https://zoom.us/j/84259596753" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 84259596753</div>
+              </div>
+            </td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">STOTT PILATES ®</div>
+                <a class="zoom-link" href="https://zoom.us/j/81867490319" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 81867490319</div>
+              </div>
+            </td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Langhantel Training</div>
+                <a class="zoom-link" href="https://zoom.us/j/81369828364" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 81369828364</div>
+              </div>
+            </td>
+            <td></td><td></td>
+          </tr>
+          <tr>
+            <td class="zeit-cell">19:00 Uhr</td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Rückenfit &amp; Bauch</div>
+                <a class="zoom-link" href="https://zoom.us/j/83737007052" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 83737007052</div>
+              </div>
+            </td>
+            <td></td>
+            <td>
+              <div class="zoom-entry">
+                <div class="zoom-name">Rückenfit &amp; Bauch</div>
+                <a class="zoom-link" href="https://zoom.us/j/84014902738" target="_blank">▶ Raum betreten</a>
+                <div class="zoom-id">Meeting ID 84014902738</div>
+              </div>
+            </td>
+            <td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
